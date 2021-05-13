@@ -1,6 +1,8 @@
 html {
-   --gap: 3vh;
-   --btn-size: calc(27vh - var(--gap) * 1.5);
+   --simon-table-size: 54vh;
+   --simon-center-size: calc(var(--simon-table-size) / 2.4);
+   --gap: calc(var(--simon-table-size) / 18);
+   --btn-size: calc((var(--simon-table-size) / 2) - var(--gap) * 1.5);
 }
 
 body {
@@ -8,13 +10,13 @@ body {
 }
 
 .video-container {
-   position: relative;
    height: 100vh;
    overflow: hidden;
 }
 
 video {
    height: 100%;
+   object-fit: cover;
 }
 
 .simon {
@@ -25,54 +27,62 @@ video {
    transform: translate(-50%, -50%);
    background-color: #183837;
    border-radius: 50%;
-   height: 54vh;
-   width: 54vh;
+   height: var(--simon-table-size);
+   width: var(--simon-table-size);
 }
 
 .btn-container {
-   /* position: relative; */
    margin: var(--gap);
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
 }
 
-.grn-btn {
-   /* position: relative; */
-   /* bottom: 50%; */
-   left: var(--gap);
-   /* top: var(--gap); */
+.btn {
+   position: relative;
    width: var(--btn-size);
    height: var(--btn-size);
+}
+
+.grn-btn {
    background-color: #59c574;
    border-top-left-radius: 100%;
 }
 
 .red-btn {
-   position: relative;
    left: var(--gap);
-   /* top: var(--gap); */
-   width: var(--btn-size);
-   height: var(--btn-size);
    background-color: #f6724e;
    border-top-right-radius: 100%;
 }
 
 .yel-btn {
-   position: relative;
    top: var(--gap);
    background-color: #feca64;
-   width: var(--btn-size);
-   height: var(--btn-size);
    border-bottom-left-radius: 100%;
 }
 
 .blu-btn {
-   position: relative;
    top: var(--gap);
    left: var(--gap);
    background-color: #1e8dc9;
-   width: var(--btn-size);
-   height: var(--btn-size);
    border-bottom-right-radius: 100%;
+}
+
+.simon-logo {
+   position: absolute;
+   left: 50%;
+   bottom: -4rem;
+   transform: translate(-50%);
+   /* display: none; */
+}
+
+.simon-center {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: var(--simon-center-size);
+   height: var(--simon-center-size);
+   background-color: #183837;
+   border-radius: 50%;
 }
