@@ -1,5 +1,6 @@
 html {
    --simon-table-size: 54vh;
+   --simon-btncnt-size: calc((var(--simon-table-size)) - var(--gap));
    --simon-center-size: calc(var(--simon-table-size) / 2.4);
    --gap: calc(var(--simon-table-size) / 18);
    --btn-size: calc((var(--simon-table-size) / 2) - var(--gap) * 1.5);
@@ -16,10 +17,11 @@ body {
 
 video {
    height: 100%;
+   width: 100%;
    object-fit: cover;
 }
 
-.simon {
+/* .simon {
    margin: auto 0;
    position: absolute;
    top: 50%;
@@ -32,7 +34,6 @@ video {
 }
 
 .btn-container {
-   margin: var(--gap);
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -66,23 +67,68 @@ video {
    left: var(--gap);
    background-color: #1e8dc9;
    border-bottom-right-radius: 100%;
+} */
+
+.simon {
+   background-color: #183837;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+   height: var(--simon-table-size);
+   width: var(--simon-table-size);
+   overflow: hidden;
+}
+
+.btn-container {
+   display: grid;
+   overflow: hidden;
+   border-radius: 50%;
+   margin: calc(var(--gap) / 2);
+   height: var(--simon-btncnt-size);
+   width: var(--simon-btncnt-size);
+   box-sizing: border-box;
+   grid-template-areas:
+      "grn-btn grn-btn red-btn"
+      "yel-btn simon-center red-btn"
+      "yel-btn blu-btn blu-btn";
+   gap: calc(var(--gap) / 2);
+   transform: rotate(-20deg);
+}
+
+.grn-btn {
+   grid-area: grn-btn;
+   background-color: #59c574;
+   border-bottom-right-radius: 50%;
+}
+
+.red-btn {
+   grid-area: red-btn;
+   background-color: #f6724e;
+   border-bottom-left-radius: 50%;
+}
+
+.simon-center {
+   grid-area: simon-center;
+}
+
+.yel-btn {
+   grid-area: yel-btn;
+   background-color: #feca64;
+   border-top-right-radius: 50%;
+}
+
+.blu-btn {
+   grid-area: blu-btn;
+   background-color: #1e8dc9;
+   border-top-left-radius: 50%;
 }
 
 .simon-logo {
    position: absolute;
    left: 50%;
-   bottom: -4rem;
+   top: 72%;
    transform: translate(-50%);
    /* display: none; */
-}
-
-.simon-center {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: var(--simon-center-size);
-   height: var(--simon-center-size);
-   background-color: #183837;
-   border-radius: 50%;
 }
