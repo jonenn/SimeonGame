@@ -9,6 +9,7 @@ html {
 body {
    margin: 0;
    background-color: #102626;
+   font-family: "Montserrat", sans-serif;
 }
 
 .video-container {
@@ -22,6 +23,59 @@ video {
    object-fit: cover;
 }
 
+.switch-container {
+   display: flex;
+   flex-direction: column;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, 84%);
+}
+
+.switch {
+   position: relative;
+   display: inline-block;
+   width: inherit;
+   width: 4.2vh;
+   height: 3vh;
+   margin: 0 auto;
+}
+
+.switch input {
+   width: 0;
+   height: 0;
+   visibility: hidden;
+}
+
+.slider {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   cursor: pointer;
+   border: 0.3vh rgb(24, 56, 55) solid;
+   background-color: rgba(180, 214, 212, 54%);
+   border-radius: 3vh;
+}
+
+.slider:before {
+   position: absolute;
+   content: "";
+   height: 2vh;
+   width: 2vh;
+   left: 0.3vh;
+   top: 50%;
+   transform: translate(0, -50%);
+   background-color: rgba(180, 214, 212, 81%);
+   border-radius: 9vh;
+}
+
+h6 {
+   margin: 0;
+   color: rgb(180, 214, 212);
+}
+/* 
 .simon {
    position: absolute;
    width: var(--simon-table-size);
@@ -81,8 +135,8 @@ video {
    left: var(--gap);
    background-color: #1e8dc9;
    border-bottom-right-radius: 100%;
-}
-/* 
+} */
+
 .simon {
    position: absolute;
    width: var(--simon-table-size);
@@ -108,7 +162,7 @@ video {
       "yel-btn simon-center red-btn"
       "yel-btn blu-btn blu-btn";
    gap: var(--gap);
-   transform: rotate(-20deg);
+   transform: rotate(-30deg);
 }
 
 .grn-btn {
@@ -137,7 +191,7 @@ video {
    grid-area: blu-btn;
    background-color: #1e8dc9;
    border-top-left-radius: 50%;
-} */
+}
 
 .simon-logo {
    position: absolute;
