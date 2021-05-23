@@ -4,6 +4,14 @@ html {
    --simon-center-size: calc(var(--simon-table-size) / 2.4);
    --gap: calc(var(--simon-table-size) / 36);
    --btn-size: calc((var(--simon-table-size) / 2) - var(--gap));
+
+   --switch-border: 0.3vh;
+   --switch-width: calc(3.9vh + var(--switch-border));
+   --switch-height: 3vh;
+
+   --slider-size: 2vh;
+   --slider-margin: calc(var(--switch-border) / 2);
+   --slider-translation: calc(var(--switch-width) / 2 - 1vh);
 }
 
 body {
@@ -26,53 +34,69 @@ video {
 .switch-container {
    display: flex;
    flex-direction: column;
+   justify-content: center;
    position: absolute;
-   top: 50%;
+   top: 53%;
    left: 50%;
-   transform: translate(-50%, 84%);
+   transform: translateX(-50%);
 }
 
 .switch {
    position: relative;
    display: inline-block;
-   width: inherit;
-   width: 4.2vh;
+   /* width: 60px;
+   height: 34px; */
+   width: var(--switch-width);
    height: 3vh;
-   margin: 0 auto;
 }
 
 .switch input {
    width: 0;
    height: 0;
-   visibility: hidden;
+   opacity: 0;
 }
 
 .slider {
    position: absolute;
+   display: block;
    top: 0;
    left: 0;
    right: 0;
    bottom: 0;
+   width: inherit;
    cursor: pointer;
-   border: 0.3vh rgb(24, 56, 55) solid;
+   border: var(--switch-border) rgb(24, 56, 55) solid;
    background-color: rgba(180, 214, 212, 54%);
+   transition: 0.4s;
    border-radius: 3vh;
+   box-sizing: border-box;
 }
 
 .slider:before {
    position: absolute;
    content: "";
-   height: 2vh;
-   width: 2vh;
-   left: 0.3vh;
-   top: 50%;
-   transform: translate(0, -50%);
+   height: var(--slider-size);
+   width: var(--slider-size);
+   left: calc(var(--slider-margin) * 2);
+   /* right: calc(var(--slider-margin) * 2); */
+   bottom: var(--slider-margin);
    background-color: rgba(180, 214, 212, 81%);
+   transition: 0.4s;
    border-radius: 9vh;
 }
 
+input:checked + .slider:before {
+   left: calc(100% - var(--switch-border));
+   transform: translateX(-100%);
+}
+
+.slider:active:before {
+   width: calc(var(--slider-size) * 1.2);
+}
+
 h6 {
-   margin: 0;
+   margin: 0 auto;
+   font-size: 0.6rem;
    color: rgb(180, 214, 212);
 }
 /* 
