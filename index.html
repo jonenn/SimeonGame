@@ -16,13 +16,13 @@
    <div class="video-container">
       <video autoplay muted loop src="./assets/videos/background.mp4"></video>
       <div class="simon">
-         <div class="btn-container">
-            <div class="btn grn-btn"></div>
-            <div class="btn red-btn"></div>
-            <div class="simon-center"></div>
-            <div class="btn yel-btn"></div>
-            <div class="btn blu-btn"></div>
+         <div class="btn-container btn-container-m" id="container">
+            <div class="grn-btn grn-btn-m" id="green"></div>
+            <div class="red-btn red-btn-m" id="red"></div>
+            <div class="yel-btn yel-btn-m" id="yellow"></div>
+            <div class="blu-btn blu-btn-m" id="blue"></div>
          </div>
+         <div class="simon-center" id="center"></div>
       </div>
       <img class="simon-logo" src="./assets/images/simon-logo.png"></img>
       <div class="switch-container">
@@ -36,4 +36,3 @@
 </body>
 
 </html>
-<!-- If you still see it, it is because as a friendly reminder you need to get rendered a better quality logo once the M1 chip is natively supported by Adobe. -->
