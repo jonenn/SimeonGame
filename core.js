@@ -23,7 +23,16 @@ function listener() {
       simonBlue.classList.add("btn-c");
       interfaceType.innerText = "Classic";
    } else {
-      console.log("Modern");
+      simonContainer.classList.remove("btn-container-c");   simonContainer.classList.add("btn-container-m");
+      simonGreen.classList.remove("grn-btn-c");             simonGreen.classList.add("grn-btn-m");
+      simonGreen.classList.remove("btn-c");
+      simonRed.classList.remove("red-btn-c");               simonRed.classList.add("red-btn-m");
+      simonRed.classList.remove("btn-c");
+      simonYellow.classList.remove("yel-btn-c");            simonYellow.classList.add("yel-btn-m");
+      simonYellow.classList.remove("btn-c");
+      simonBlue.classList.remove("blu-btn-c");              simonBlue.classList.add("blu-btn-m");
+      simonBlue.classList.remove("btn-c");
+      interfaceType.innerText = "Modern";
    }
 }
 

@@ -135,14 +135,14 @@ h6 {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   transition: 600ms;
+   transition: 300ms;
 }
 
 .btn-c {
    position: relative;
    width: calc(var(--btn-size) - var(--gap) / 2);
    height: calc(var(--btn-size) - var(--gap) / 2);
-   transition: 600ms;
+   transition: 150ms;
 }
 
 .grn-btn-c {
@@ -180,6 +180,7 @@ h6 {
       "yel-btn blu-btn blu-btn";
    gap: var(--gap);
    transform: rotate(-30deg);
+   transition: 150ms;
 }
 
 .grn-btn-m {
