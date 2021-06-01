@@ -130,7 +130,6 @@ h6 {
 }
 
 /* Classic */
-
 .btn-container-c {
    display: flex;
    flex-direction: row;
@@ -167,6 +166,7 @@ h6 {
 
 /* /Classic */
 
+/* Modern */
 .btn-container-m {
    display: grid;
    overflow: hidden;
@@ -202,6 +202,7 @@ h6 {
    grid-area: blu-btn;
    border-top-left-radius: 50%;
 }
+/* /Modern */
 
 .simon-center {
    position: absolute;
@@ -210,6 +211,7 @@ h6 {
    transform: translate(-50%, -50%);
    width: var(--simon-center-size);
    height: var(--simon-center-size);
+   margin-left: -1px;
    background-color: #183837;
    grid-area: simon-center;
    border-radius: 50%;
@@ -223,4 +225,33 @@ h6 {
    transform: translate(-50%, -50%);
    width: 18vh;
    /* display: none; */
+}
+
+.start-modal {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(16, 38, 38, 42%);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.start-button {
+   width: 36%;
+   height: 6rem;
+   background-color: #102626;
+   border: none;
+   color: rgba(180, 214, 212, 54%);
+   font-family: "Montserrat", sans-serif;
+   border-radius: 1.5rem;
+   border: 3px solid rgba(101, 136, 136, 15%);
+   cursor: pointer;
+   font-size: 1.8rem;
+}
+
+.start-button:hover {
+   background-color: #183837;
 }
