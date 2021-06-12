@@ -36,3 +36,17 @@ function listener() {
    }
 }
 
+const start = document.querySelector("#start")
+class Game {
+   constructor() {
+      this.init()
+   }
+
+   init() {
+      start.style.display="none";
+   }
+}
+
+const startGame = () => {
+   let game = new Game();
+}

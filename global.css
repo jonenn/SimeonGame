@@ -237,10 +237,11 @@ h6 {
    display: flex;
    justify-content: center;
    align-items: center;
+   transition: 3s;
 }
 
 .start-button {
-   width: 36%;
+   width: 60vh;
    height: 6rem;
    background-color: #102626;
    border: none;
