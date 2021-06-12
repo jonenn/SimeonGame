@@ -256,3 +256,7 @@ h6 {
 .start-button:hover {
    background-color: #183837;
 }
+
+.hide {
+   display: none;
+}
