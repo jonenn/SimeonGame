@@ -117,16 +117,32 @@ h6 {
    background-color: #59c574;
 }
 
+.grn-btn.light {
+   background-color: #95e8a3;
+}
+
 .red-btn {
    background-color: #f6724e;
+}
+
+.red-btn.light {
+   background-color: #f99282;
 }
 
 .yel-btn {
    background-color: #feca64;
 }
 
+.yel-btn.light {
+   background-color: #f9d7a0;
+}
+
 .blu-btn {
    background-color: #1e8dc9;
+}
+
+.blu-btn.light {
+   background-color: #65bddb;
 }
 
 /* Classic */

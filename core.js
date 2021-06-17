@@ -41,11 +41,12 @@ class Game {
    constructor() {
       this.init()
       this.generateSequence();
+      this.levelUp();
    }
 
    init() {
       start.classList.add("hide");
-      this.level = 1;
+      this.level = 10;
       this.colours = {
          simonGreen,
          simonRed,
@@ -56,6 +57,39 @@ class Game {
 
    generateSequence() {
       this.sequence = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4));
+   }
+
+   levelUp() {
+      this.lighting();
+   }
+
+   numberToColor(n) {
+      switch (n) {
+         case 0:
+            return "simonGreen";
+         case 1:
+            return "simonRed";
+         case 2:
+            return "simonYellow";
+         case 3:
+            return "simonBlue";
+      }
+   }
+
+   lighting() {
+      for(let i = 0; i < this.level; i++) {
+         let color = this.numberToColor(this.sequence[i]);
+         setTimeout(() => this.lightColor(color), 1000 * i);
+      }
+   }
+
+   lightColor(color) {
+      this.colours[color].classList.add("light");
+      setTimeout(()=>this.turnOffColor(color), 350);
+   }
+
+   turnOffColor(color) {
+      this.colours[color].classList.remove("light");
    }
 }
 
