@@ -111,6 +111,7 @@ h6 {
 
 .btn-container {
    margin: var(--gap);
+   cursor: pointer;
 }
 
 .grn-btn {

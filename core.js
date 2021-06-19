@@ -7,7 +7,6 @@ const simonYellow = document.querySelector("#yellow");
 const simonBlue = document.querySelector("#blue");
 const simonCenter = document.querySelector("#center");
 
-
 interfaceStatus.addEventListener("click", listener);
 
 function listener() {
@@ -37,6 +36,8 @@ function listener() {
 }
 
 const start = document.querySelector("#starter")
+const clickableBtn = document.querySelector(".btn-container")
+const LEVELS = 5;
 class Game {
    constructor() {
       this.init()
@@ -46,21 +47,25 @@ class Game {
 
    init() {
       start.classList.add("hide");
-      this.level = 10;
+      this.level = 1;
       this.colours = {
          simonGreen,
          simonRed,
          simonYellow,
          simonBlue
       };
+      this.chooseColor = this.chooseColor.bind(this);
+      this.levelUp = this.levelUp.bind(this);
    }
 
    generateSequence() {
-      this.sequence = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4));
+      this.sequence = new Array(LEVELS).fill(0).map(n => Math.floor(Math.random() * 4));
    }
 
    levelUp() {
       this.lighting();
+      this.sublevel = 0;
+      this.addClickEve();
    }
 
    numberToColor(n) {
@@ -76,14 +81,27 @@ class Game {
       }
    }
 
-   lighting() {
-      for(let i = 0; i < this.level; i++) {
-         let color = this.numberToColor(this.sequence[i]);
-         setTimeout(() => this.lightColor(color), 1000 * i);
+   colorToNumber(color) {
+      switch (color) {
+         case "simonGreen":
+            return 0;
+         case "simonRed":
+            return 1;
+         case "simonYellow":
+            return 2;
+         case "simonBlue":
+            return 3;
       }
    }
 
-   lightColor(color) {
+   lighting() {
+      for(let i = 0; i < this.level; i++) {
+         let color = this.numberToColor(this.sequence[i]);
+         setTimeout(() => this.turnOnColor(color), 1000 * i);
+      }
+   }
+
+   turnOnColor(color) {
       this.colours[color].classList.add("light");
       setTimeout(()=>this.turnOffColor(color), 350);
    }
@@ -91,8 +109,42 @@ class Game {
    turnOffColor(color) {
       this.colours[color].classList.remove("light");
    }
+
+   addClickEve() {
+      this.colours.simonGreen.addEventListener("click", this.chooseColor);
+      this.colours.simonRed.addEventListener("click", this.chooseColor);
+      this.colours.simonYellow.addEventListener("click", this.chooseColor);
+      this.colours.simonBlue.addEventListener("click", this.chooseColor);
+      clickableBtn.style.cursor = "pointer";
+   }
+
+   deleteClickEve() {
+      this.colours.simonGreen.removeEventListener("click", this.chooseColor);
+      this.colours.simonRed.removeEventListener("click", this.chooseColor);
+      this.colours.simonYellow.removeEventListener("click", this.chooseColor);
+      this.colours.simonBlue.removeEventListener("click", this.chooseColor);
+      clickableBtn.style.cursor = "initial";
+   }
+
+   chooseColor(eve) {
+      let nameOfColor = eve.target.dataset.color;
+      let numberOfColor = this.colorToNumber(nameOfColor);
+      this.turnOnColor(nameOfColor);
+      if (numberOfColor === this.sequence[this.sublevel]) {
+         this.sublevel++;
+         if (this.sublevel === this.level) {
+            this.level++;
+            this.deleteClickEve();
+            (this.level === (LEVELS + 1))
+               ? console.log("We got a winner!")
+               : setTimeout(this.levelUp, 2000);
+         }
+      } else {
+         console.log("Keep trying!");
+      }
+   }
 }
 
 const startGame = () => {
-   window.game = new Game();
+   let game = new Game();
 }
