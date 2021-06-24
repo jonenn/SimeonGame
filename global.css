@@ -241,10 +241,9 @@ h6 {
    top: 50%;
    transform: translate(-50%, -50%);
    width: 18vh;
-   /* display: none; */
 }
 
-.start-modal {
+.modal {
    position: absolute;
    top: 0;
    left: 0;
@@ -261,7 +260,6 @@ h6 {
    width: 60vh;
    height: 6rem;
    background-color: #102626;
-   border: none;
    color: rgba(180, 214, 212, 54%);
    font-family: "Montserrat", sans-serif;
    border-radius: 1.5rem;
@@ -276,4 +274,24 @@ h6 {
 
 .hide {
    display: none;
+}
+
+.try-again {
+   width: 60vh;
+   height: 12rem;
+   background-color: #102626;
+   border: 3px solid rgba(101, 136, 136, 15%);
+   border-radius: 1.5rem;
+   color: rgba(180, 214, 212, 54%);
+   text-align: center;
+   font-family: "Montserrat", sans-serif;
+}
+
+.play-again {
+   cursor: pointer;
+}
+
+.play-again {
+   cursor: pointer;
+   filter: brightness(112%);
 }

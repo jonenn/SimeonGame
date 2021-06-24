@@ -7,9 +7,9 @@ const simonYellow = document.querySelector("#yellow");
 const simonBlue = document.querySelector("#blue");
 const simonCenter = document.querySelector("#center");
 
-interfaceStatus.addEventListener("click", listener);
+interfaceStatus.addEventListener("click", modernClassic);
 
-function listener() {
+function modernClassic() {
    if (interfaceStatus.checked) {
       simonContainer.classList.remove("btn-container-m"); simonContainer.classList.add("btn-container-c");
       simonGreen.classList.remove("grn-btn-m"); simonGreen.classList.add("grn-btn-c");
@@ -35,18 +35,20 @@ function listener() {
    }
 }
 
-const start = document.querySelector("#starter")
-const clickableBtn = document.querySelector(".btn-container")
-const LEVELS = 5;
+const clickableBtn = document.querySelector(".btn-container");
+const modal = document.querySelectorAll(".modal");
+const levelsPassed = document.querySelector("#levels-passed");
+const playAgain = document.querySelector(".play-again");
+const LEVELS = 50;
 class Game {
    constructor() {
-      this.init()
+      this.init();
       this.generateSequence();
       this.levelUp();
    }
 
    init() {
-      start.classList.add("hide");
+      modal[0].classList.add("hide");
       this.level = 1;
       this.colours = {
          simonGreen,
@@ -136,11 +138,16 @@ class Game {
             this.level++;
             this.deleteClickEve();
             (this.level === (LEVELS + 1))
-               ? console.log("We got a winner!")
-               : setTimeout(this.levelUp, 2000);
+            ? console.log("We got a winner!")
+            : setTimeout(this.levelUp, 2000);
          }
       } else {
-         console.log("Keep trying!");
+         modal[1].classList.remove("hide");
+         levelsPassed.textContent = (this.level - 1);
+         playAgain.addEventListener("click", () => {
+            startGame();
+            modal[1].classList.add("hide");
+         });
       }
    }
 }
