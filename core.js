@@ -39,12 +39,12 @@ const clickableBtn = document.querySelector(".btn-container");
 const modal = document.querySelectorAll(".modal");
 const levelsPassed = document.querySelector("#levels-passed");
 const playAgain = document.querySelector(".play-again");
-const LEVELS = 50;
+const LEVELS = 5;
 class Game {
    constructor() {
       this.init();
       this.generateSequence();
-      this.levelUp();
+      setTimeout(this.levelUp(), 1200)
    }
 
    init() {
@@ -145,13 +145,19 @@ class Game {
          modal[1].classList.remove("hide");
          levelsPassed.textContent = (this.level - 1);
          playAgain.addEventListener("click", () => {
-            startGame();
             modal[1].classList.add("hide");
+            this.restart();
          });
       }
+   }
+
+   restart() {
+      this.generateSequence();
+      setTimeout(this.levelUp, 1200);
+      this.level = 1;
    }
 }
 
 const startGame = () => {
-   let game = new Game();
+   window.game = new Game();
 }

@@ -291,7 +291,7 @@ h6 {
    cursor: pointer;
 }
 
-.play-again {
+.play-again:hover {
    cursor: pointer;
    filter: brightness(112%);
 }
