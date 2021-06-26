@@ -18,10 +18,10 @@
       <video autoplay muted loop src="./assets/videos/background.mp4"></video>
       <div class="simon">
          <div class="btn-container btn-container-m" id="container">
-            <div class="grn-btn-m grn-btn" id="green" data-color="simonGreen"></div>
-            <div class="red-btn-m red-btn" id="red" data-color="simonRed"></div>
-            <div class="yel-btn-m yel-btn" id="yellow" data-color="simonYellow"></div>
-            <div class="blu-btn-m blu-btn" id="blue" data-color="simonBlue"></div>
+            <div class="grn-btn-m grn-btn" id="green" data-colour="simonGreen"></div>
+            <div class="red-btn-m red-btn" id="red" data-colour="simonRed"></div>
+            <div class="yel-btn-m yel-btn" id="yellow" data-colour="simonYellow"></div>
+            <div class="blu-btn-m blu-btn" id="blue" data-colour="simonBlue"></div>
          </div>
          <div class="simon-center" id="center"></div>
       </div>
@@ -42,6 +42,10 @@
          <h1>Try Again</h1>
          <img class="play-again" src="assets/images/try-again.png" width="120">
          <p>Max level: <strong id="levels-passed">0</strong></p>
+      </button>
+      <button class="win hide">
+         <h1>You did it!</h1>
+         <p>You've gone through the <strong id="finale-level"></strong> levels of the game.</p>
       </button>
    </div>
 </body>

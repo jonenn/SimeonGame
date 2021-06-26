@@ -37,8 +37,11 @@ function modernClassic() {
 
 const clickableBtn = document.querySelector(".btn-container");
 const modal = document.querySelectorAll(".modal");
-const levelsPassed = document.querySelector("#levels-passed");
+const tryAgainModal = document.querySelector(".try-again");
+const winModal = document.querySelector(".win");
 const playAgain = document.querySelector(".play-again");
+const levelsPassed = document.querySelector("#levels-passed");
+const finaleLevelDisplay = document.querySelector("#finale-level");
 const LEVELS = 5;
 class Game {
    constructor() {
@@ -56,7 +59,7 @@ class Game {
          simonYellow,
          simonBlue
       };
-      this.chooseColor = this.chooseColor.bind(this);
+      this.chooseColour = this.chooseColour.bind(this);
       this.levelUp = this.levelUp.bind(this);
    }
 
@@ -70,7 +73,7 @@ class Game {
       this.addClickEve();
    }
 
-   numberToColor(n) {
+   numberToColour(n) {
       switch (n) {
          case 0:
             return "simonGreen";
@@ -83,8 +86,8 @@ class Game {
       }
    }
 
-   colorToNumber(color) {
-      switch (color) {
+   colourToNumber(colour) {
+      switch (colour) {
          case "simonGreen":
             return 0;
          case "simonRed":
@@ -98,47 +101,50 @@ class Game {
 
    lighting() {
       for(let i = 0; i < this.level; i++) {
-         let color = this.numberToColor(this.sequence[i]);
-         setTimeout(() => this.turnOnColor(color), 1000 * i);
+         let colour = this.numberToColour(this.sequence[i]);
+         setTimeout(() => this.turnOnColour(colour), 1000 * i);
       }
    }
 
-   turnOnColor(color) {
-      this.colours[color].classList.add("light");
-      setTimeout(()=>this.turnOffColor(color), 350);
+   turnOnColour(colour) {
+      this.colours[colour].classList.add("light");
+      setTimeout(()=>this.turnOffColour(colour), 350);
    }
 
-   turnOffColor(color) {
-      this.colours[color].classList.remove("light");
+   turnOffColour(colour) {
+      this.colours[colour].classList.remove("light");
    }
 
    addClickEve() {
-      this.colours.simonGreen.addEventListener("click", this.chooseColor);
-      this.colours.simonRed.addEventListener("click", this.chooseColor);
-      this.colours.simonYellow.addEventListener("click", this.chooseColor);
-      this.colours.simonBlue.addEventListener("click", this.chooseColor);
+      this.colours.simonGreen.addEventListener("click", this.chooseColour);
+      this.colours.simonRed.addEventListener("click", this.chooseColour);
+      this.colours.simonYellow.addEventListener("click", this.chooseColour);
+      this.colours.simonBlue.addEventListener("click", this.chooseColour);
       clickableBtn.style.cursor = "pointer";
    }
 
    deleteClickEve() {
-      this.colours.simonGreen.removeEventListener("click", this.chooseColor);
-      this.colours.simonRed.removeEventListener("click", this.chooseColor);
-      this.colours.simonYellow.removeEventListener("click", this.chooseColor);
-      this.colours.simonBlue.removeEventListener("click", this.chooseColor);
+      this.colours.simonGreen.removeEventListener("click", this.chooseColour);
+      this.colours.simonRed.removeEventListener("click", this.chooseColour);
+      this.colours.simonYellow.removeEventListener("click", this.chooseColour);
+      this.colours.simonBlue.removeEventListener("click", this.chooseColour);
       clickableBtn.style.cursor = "initial";
    }
 
-   chooseColor(eve) {
-      let nameOfColor = eve.target.dataset.color;
-      let numberOfColor = this.colorToNumber(nameOfColor);
-      this.turnOnColor(nameOfColor);
-      if (numberOfColor === this.sequence[this.sublevel]) {
+   chooseColour(eve) {
+      let nameOfColour = eve.target.dataset.colour;
+      let numberOfColour = this.colourToNumber(nameOfColour);
+      this.turnOnColour(nameOfColour);
+      if (numberOfColour === this.sequence[this.sublevel]) {
          this.sublevel++;
          if (this.sublevel === this.level) {
             this.level++;
             this.deleteClickEve();
             (this.level === (LEVELS + 1))
-            ? console.log("We got a winner!")
+            ? (modal[1].classList.remove("hide"),
+               winModal.classList.remove("hide"),
+               tryAgainModal.classList.add("hide"),
+               finaleLevelDisplay.textContent = LEVELS)
             : setTimeout(this.levelUp, 2000);
          }
       } else {
