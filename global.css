@@ -47,6 +47,7 @@ video {
 
 .switch {
    position: relative;
+   margin: 0 auto;
    display: inline-block;
    width: var(--switch-width);
    height: 3vh;
@@ -65,7 +66,6 @@ video {
    left: 0;
    right: 0;
    bottom: 0;
-   width: inherit;
    cursor: pointer;
    border: var(--switch-border) rgb(24, 56, 55) solid;
    background-color: rgba(180, 214, 212, 54%);

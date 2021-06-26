@@ -42,7 +42,7 @@ const winModal = document.querySelector(".win");
 const playAgain = document.querySelector(".play-again");
 const levelsPassed = document.querySelector("#levels-passed");
 const finaleLevelDisplay = document.querySelector("#finale-level");
-const LEVELS = 5;
+const LEVELS = 10;
 class Game {
    constructor() {
       this.init();
@@ -165,5 +165,5 @@ class Game {
 }
 
 const startGame = () => {
-   window.game = new Game();
+   let game = new Game();
 }
