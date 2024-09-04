@@ -1,7 +1,7 @@
 html {
    --simon-table-size: 54vh;
    --simon-btncnt-size: calc((var(--simon-table-size)) - var(--gap) * 2);
-   --simon-center-size: calc(var(--simon-table-size) / 2.6 - 1px);
+   --simon-center-size: calc(var(--simon-table-size) / 2.6 - 3px);
    --gap: calc(var(--simon-table-size) / 36);
    --btn-size: calc((var(--simon-table-size) / 2) - var(--gap));
 
@@ -21,7 +21,7 @@ html {
 body {
    margin: 0;
    background-color: #102626;
-   font-family: "Montserrat", sans-serif;
+   font-family: 'Montserrat', sans-serif;
 }
 
 .video-container {
@@ -76,7 +76,7 @@ video {
 
 .slider:before {
    position: absolute;
-   content: "";
+   content: '';
    height: var(--slider-size);
    width: var(--slider-size);
    left: calc(var(--slider-margin) * 2);
@@ -196,9 +196,9 @@ h6 {
    width: var(--simon-btncnt-size);
    box-sizing: border-box;
    grid-template-areas:
-      "grn-btn grn-btn red-btn"
-      "yel-btn simon-center red-btn"
-      "yel-btn blu-btn blu-btn";
+      'grn-btn grn-btn red-btn'
+      'yel-btn simon-center red-btn'
+      'yel-btn blu-btn blu-btn';
    gap: var(--gap);
    transform: rotate(-30deg);
    transition: 150ms;
@@ -265,7 +265,7 @@ h6 {
    height: 6rem;
    background-color: #102626;
    color: rgba(180, 214, 212, 54%);
-   font-family: "Montserrat", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    border-radius: 1.5rem;
    border: 3px solid rgba(101, 136, 136, 15%);
    cursor: pointer;
@@ -288,7 +288,7 @@ h6 {
    border-radius: 1.5rem;
    color: rgba(180, 214, 212, 54%);
    text-align: center;
-   font-family: "Montserrat", sans-serif;
+   font-family: 'Montserrat', sans-serif;
 }
 
 .play-again {
